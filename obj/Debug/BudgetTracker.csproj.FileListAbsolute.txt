@@ -1,0 +1,13 @@
+C:\Users\User\source\repos\BudgetTracker\bin\Debug\BudgetTracker.exe.config
+C:\Users\User\source\repos\BudgetTracker\bin\Debug\BudgetTracker.exe
+C:\Users\User\source\repos\BudgetTracker\bin\Debug\BudgetTracker.pdb
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.Login.resources
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.Properties.Resources.resources
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.csproj.GenerateResource.cache
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.exe
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.pdb
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.Summary.resources
+C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.frmAddUpdate.resources
