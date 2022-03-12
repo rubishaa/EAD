@@ -20,7 +20,7 @@ namespace BudgetTracker
         }
 
         private void button1_Click(object sender, EventArgs e)
-        { 
+        {
             sumForm.addTransaction(dtpAdd.Value, cmbType.Text, cmbCat.Text, txtAmnt.Text, txtDes.Text);
             MessageBox.Show("Added Successfully");
         }
@@ -42,6 +42,24 @@ namespace BudgetTracker
             sumForm.deleteRow();
             sumForm.addTransaction(dtpAdd.Value, cmbType.Text, cmbCat.Text, txtAmnt.Text, txtDes.Text);
             MessageBox.Show("Updated Successfully");
+        }
+
+        public void calledFunctions(int func)
+        {
+            if (func == 1)
+            {
+                btnAdd2.Enabled = true;
+                btnUpdate.Enabled = false;
+            }
+            else if (func == 2)
+            {
+                btnAdd2.Enabled = false;
+                btnUpdate.Enabled = true;
+            }
+            else 
+            {
+
+            }
         }
     }
 }
