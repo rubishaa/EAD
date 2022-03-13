@@ -28,3 +28,4 @@ C:\Users\User\source\repos\BudgetTracker\bin\Debug\System.Linq.Dynamic.Core.pdb
 C:\Users\User\source\repos\BudgetTracker\bin\Debug\System.Linq.Dynamic.Core.xml
 C:\Users\User\source\repos\BudgetTracker\bin\Debug\System.ValueTuple.xml
 C:\Users\User\source\repos\BudgetTracker\obj\Debug\BudgetTracker.csproj.CopyComplete
+C:\Users\User\source\repos\BudgetTracker\bin\Debug\BudgetTracker.xml

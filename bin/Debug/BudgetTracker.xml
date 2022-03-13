@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BudgetTracker</name>
+    </assembly>
+    <members>
+        <member name="M:BudgetTracker.frmAddUpdate.loadValues(System.Windows.Forms.DataGridViewRow)">
+            <summary>
+            load the selected row's current values for update
+            </summary>
+            <param name="updateRow"> slectedrow for update</param>
+        </member>
+        <member name="M:BudgetTracker.frmAddUpdate.calledFunctions(System.Int32)">
+            <summary>
+            Based on the selected operation ADD or Update disable the other button
+            </summary>
+            <param name="func"> variable to identify the add or update functions</param>
+        </member>
+        <member name="F:BudgetTracker.frmAddUpdate.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.frmAddUpdate.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetTracker.frmAddUpdate.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.Login.btnLogin_Click(System.Object,System.EventArgs)">
+            <summary>
+            perform username and pasword validation on login click
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:BudgetTracker.Login.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.Login.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetTracker.Login.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.Summary.filterValues(System.String,System.String)">
+            <summary>
+            Filter the rows based on the period given 
+            </summary>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BudgetTracker.Summary.addTransaction(System.DateTime,System.String,System.String,System.String,System.String)">
+            <summary>
+            Add new row to the table
+            </summary>
+            <param name="date"></param>
+            <param name="type"></param>
+            <param name="category"></param>
+            <param name="amount"></param>
+            <param name="des"></param>
+        </member>
+        <member name="M:BudgetTracker.Summary.viewAll">
+            <summary>
+            View all the rows in data table
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.Summary.deleteRow">
+            <summary>
+            Delete the selected row
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.Summary.loadSampleData">
+            <summary>
+            Insert sample data to the table for testing
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.Summary.calculateSummary">
+            <summary>
+            Calculate the total based on type and category. Shows the calucalted values as text and chart
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.Summary.generateReport(System.Int32)">
+            <summary>
+            Generate the report based on the selection and saced as xlsx file in the given location
+            </summary>
+            <param name="reportCount"></param>
+        </member>
+        <member name="F:BudgetTracker.Summary.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BudgetTracker.Summary.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BudgetTracker.Summary.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BudgetTracker.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BudgetTracker.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BudgetTracker.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

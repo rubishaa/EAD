@@ -20,6 +20,11 @@ namespace BudgetTracker
 
         public Summary summaryForm { get; private set; }
 
+        /// <summary>
+        /// perform username and pasword validation on login click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if(txtUserName.Text == "Sha" && txtPassword.Text == "123")

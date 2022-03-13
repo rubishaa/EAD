@@ -13,6 +13,15 @@ namespace BudgetTracker
 {
     public partial class Summary : Form
     {
+        public DataTable tabl = new DataTable();
+        public DataSet ds = new DataSet();
+        public frmAddUpdate frmAdd;
+        public DataGridViewRow selectedRow = null;
+        public DateTime now = DateTime.Now;
+        public int iDate = DateTime.Now.Day;
+        public int rowIndex;
+        public int reportCount = 0;
+
         public Summary()
         {
             InitializeComponent();
@@ -21,71 +30,13 @@ namespace BudgetTracker
         
         private void btnReport_Click(object sender, EventArgs e)
         {
-            string AppLocation = "";
-            AppLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
-            AppLocation = AppLocation.Replace("file:\\", "");
-            string date = DateTime.Now.ToShortDateString();
-            date = date.Replace("/", "_");
-            string filepath = AppLocation + "\\Reports\\" + "BUDGET_REPORT_" + date + ".xlsx";
-
-            var wbook = new XLWorkbook();
-
-            var dv = ds.Tables[0].DefaultView;
-
-            if (rbtCustom.Enabled == true)
-            {
-                var strExpr = "Date >= '" + dtpRptFrom.Text + "' AND DATE <= '" + dtpRptTo.Text + "'";
-                dv.RowFilter = strExpr; 
-            }
-            else if (rbtWeek.Enabled == true)
-            {
-
-            }
-            var newDS = new DataSet();
-            var newDT = dv.ToTable();
-            newDS.Tables.Add(newDT);
-            wbook.Worksheets.Add(newDS.Tables[0], newDS.Tables[0].TableName);
-            wbook.SaveAs(filepath);
-            MessageBox.Show("Saved");
+            reportCount ++;
+            generateReport(reportCount);
 
         }
-        public DataTable tabl = new DataTable();
-        public DataSet ds = new DataSet();
-
-        public frmAddUpdate frmAdd;
-        private void loadSampleData()
-        {
-            
-            //Creating columns
-            tabl.Columns.Add("Date", typeof(DateTime));
-            tabl.Columns.Add("Type", typeof(string));
-            tabl.Columns.Add("Category", typeof(string));
-            tabl.Columns.Add("Amount", typeof(float));
-            tabl.Columns.Add("Description", typeof(string));
-           // tabl.Columns.Add("TID", typeof(int));
-
-           /* tabl.Columns["TID"].AutoIncrement = true;
-            tabl.Columns["TID"].AutoIncrementSeed = 1;
-            tabl.Columns["TID"].AutoIncrementStep = 1;*/
-
-            //Adding data in a Datatable.
-            tabl.Rows.Add(DateTime.Today, "Income", "Salary", 120000,"");
-            tabl.Rows.Add(DateTime.Today, "Expense","Food", 1000, "");
-            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1500, "");
-            tabl.Rows.Add(DateTime.Today, "Expense", "Clothes", 5000, "");
-            tabl.Rows.Add(DateTime.Today, "Income", "Salary", 120000, "");
-            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1000, "");
-            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1500, "");
-            tabl.Rows.Add(DateTime.Today, "Expense", "Clothes", 5000, "");
-            tabl.Rows.Add(DateTime.Today, "Income", "Salary", 120000, "");
-            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1000, "");
-            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1500, "");
-            tabl.Rows.Add(DateTime.Today, "Expense", "Clothes", 5000, "");
-            
-            ds.Tables.Add(tabl);
-                       
-        }
-
+       
+ 
+        //onAdd click
         private void button1_Click(object sender, EventArgs e)
         {
             frmAdd = new frmAddUpdate(this);
@@ -93,32 +44,31 @@ namespace BudgetTracker
             frmAdd.calledFunctions(1);
         }
 
+        //onUpdate click
         private void button2_Click(object sender, EventArgs e)
         {
+            if (selectedRow == null)
+            {
+                MessageBox.Show("Please select the row to update");
+                return;
+            }
             frmAdd = new frmAddUpdate(this);
             frmAdd.Show();
             frmAdd.loadValues(selectedRow);
             frmAdd.calledFunctions(2);
         }
 
-        public DataGridViewRow selectedRow;
-        
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Summary_Load(object sender, EventArgs e)
         {
+            chtOver.Titles.Add("Overview");
+            chtOver.Series["Series1"].IsValueShownAsLabel = true;
+            chtExp.Titles.Add("Expense view");
+            chtExp.Series["Series1"].IsValueShownAsLabel = true;
             calculateSummary();
 
         }
 
-        private void tabTD_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+       
         private void rbtLast_CheckedChanged(object sender, EventArgs e)
         {
            
@@ -127,44 +77,30 @@ namespace BudgetTracker
             var newDS = new DataSet();
             newDS.Tables.Add(dtTop);
             dgvTD.DataSource = newDS.Tables[0].DefaultView;
-            //dgvTD.Columns["TID"].Visible = false;
+            
         }
 
         private void rbtFilter_CheckedChanged(object sender, EventArgs e)
         {
-            filterValues();          
+            DataSet newDS = filterValues(dtpTDFrom.Text, dtpTDTo.Text);
+            dgvTD.DataSource = newDS.Tables[0].DefaultView;
+
         }
 
-        private void filterValues()
+
+        private void btnFilter_Click(object sender, EventArgs e)
         {
-            var strExpr = "Date >= '" + dtpTDFrom.Text + "' AND DATE <= '" + dtpTDTo.Text + "'";
-            var dv = ds.Tables[0].DefaultView;
-            dv.RowFilter = strExpr;
-            var newDS = new DataSet();
-            var newDT = dv.ToTable();
-            newDS.Tables.Add(newDT);
+            DataSet newDS = filterValues(dtpTDFrom.Text, dtpTDTo.Text);
             dgvTD.DataSource = newDS.Tables[0].DefaultView;
         }
-       
-        public void addTransaction(DateTime date, String type, String category, String amount, String des)
-        {
-            float amt = (float)Convert.ToDouble(amount);
-            tabl.Rows.Add(date.Date, type, category, amt, des);
-            viewAll();
-        }
+
 
         private void rbtView_CheckedChanged(object sender, EventArgs e)
         {
             viewAll();
         }
 
-        private void viewAll()
-        {
-            tabl.DefaultView.RowFilter = string.Empty;
-            dgvTD.DataSource = ds.Tables[0].DefaultView;
-        }
 
-        public int rowIndex;
         private void dgvTD_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndex = e.RowIndex;
@@ -173,34 +109,109 @@ namespace BudgetTracker
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (selectedRow == null)
+            {
+                MessageBox.Show("Please select the row to update");
+                return;
+            }
             deleteRow();
-            MessageBox.Show("Deleted Successfully");
+            MessageBox.Show("Successfully Deleted");
             viewAll();
         }
 
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            calculateSummary();
+        }
+
+        /// <summary>
+        /// Filter the rows based on the period given 
+        /// </summary>
+        /// <param name="fromDate"></param>
+        /// <param name="toDate"></param>
+        /// <returns></returns>
+        private DataSet filterValues(string fromDate, string toDate)
+        {
+            var strExpr = "Date >= '" + fromDate + "' AND DATE <= '" + toDate + "'";
+            var dv = ds.Tables[0].DefaultView;
+            dv.RowFilter = strExpr;
+            var newDS = new DataSet();
+            var newDT = dv.ToTable();
+            newDS.Tables.Add(newDT);
+            return newDS;
+
+        }
+        
+        /// <summary>
+        /// Add new row to the table
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="type"></param>
+        /// <param name="category"></param>
+        /// <param name="amount"></param>
+        /// <param name="des"></param>
+        public void addTransaction(DateTime date, String type, String category, String amount, String des)
+        {
+            float amt = (float)Convert.ToDouble(amount);
+            tabl.Rows.Add(date, type, category, amt, des);
+            viewAll();
+        }
+
+        /// <summary>
+        /// View all the rows in data table
+        /// </summary>
+        private void viewAll()
+        {
+            tabl.DefaultView.RowFilter = string.Empty;
+            dgvTD.DataSource = ds.Tables[0].DefaultView;
+        }
+
+        /// <summary>
+        /// Delete the selected row
+        /// </summary>
         public void deleteRow()
         {
             ds.Tables[0].Rows[rowIndex].Delete();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        /// <summary>
+        /// Insert sample data to the table for testing
+        /// </summary>
+        private void loadSampleData()
         {
+
+            //Creating columns
+            tabl.Columns.Add("Date", typeof(DateTime));
+            tabl.Columns.Add("Type", typeof(string));
+            tabl.Columns.Add("Category", typeof(string));
+            tabl.Columns.Add("Amount", typeof(float));
+            tabl.Columns.Add("Description", typeof(string));
+
+            //Adding data in a Datatable.
+            tabl.Rows.Add(DateTime.Today, "Income", "Salary", 120000, "");
+            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1000, "");
+            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1500, "");
+            tabl.Rows.Add(DateTime.Today, "Expense", "Clothes", 5000, "");
+            tabl.Rows.Add(DateTime.Today, "Income", "Salary", 120000, "");
+            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1000, "");
+            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1500, "");
+            tabl.Rows.Add(DateTime.Today, "Expense", "Clothes", 5000, "");
+            tabl.Rows.Add(DateTime.Today, "Income", "Salary", 120000, "");
+            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1000, "");
+            tabl.Rows.Add(DateTime.Today, "Expense", "Food", 1500, "");
+            tabl.Rows.Add(DateTime.Today, "Expense", "Clothes", 5000, "");
+
+            ds.Tables.Add(tabl);
 
         }
 
-        private void tabSummary_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpTDTo_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Calculate the total based on type and category. Shows the calucalted values as text and chart
+        /// </summary>
         private void calculateSummary()
         { 
-            DateTime now = DateTime.Now;
+            //filter and calcualte the total
             var thisMonthRows = tabl.AsEnumerable()
                 .Where(r => r.Field<DateTime>("Date").Year == now.Year
                           && r.Field<DateTime>("Date").Month == now.Month);
@@ -251,17 +262,16 @@ namespace BudgetTracker
                 .Where(y => y.Field<string>("Category") == "Other Income")
                 .Sum(x => x.Field<float>("Amount"));
 
-            int date = DateTime.Now.Day;
-            
+            //forcast calculation        
             int daysInmonth = System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-            txtExpFor.Text = ((exp / date)*daysInmonth).ToString();
+            txtExpFor.Text = ((exp / iDate)*daysInmonth).ToString();
+            txtClotheFor.Text = ((clothes / iDate) *daysInmonth).ToString();
+            txtEntFor.Text  = ((ent / iDate) * daysInmonth).ToString();
+            txtExpOtFor.Text = ((otherEx / iDate) * daysInmonth).ToString();
+            txtFoodFor.Text = ((food / iDate) * daysInmonth).ToString();
+            txtTransFor.Text = ((trans / iDate) * daysInmonth).ToString();
 
-            txtClotheFor.Text = ((clothes / date)*daysInmonth).ToString();
-            txtEntFor.Text  = ((ent / date) * daysInmonth).ToString();
-            txtExpOtFor.Text = ((otherEx / date) * daysInmonth).ToString();
-            txtFoodFor.Text = ((food / date) * daysInmonth).ToString();
-            txtTransFor.Text = ((trans / date) * daysInmonth).ToString();
-
+            // assign the alues to the text box
             txtIncome.Text = income.ToString();
             txtExp.Text = exp.ToString();
             txtSave.Text =save.ToString();
@@ -277,39 +287,111 @@ namespace BudgetTracker
             float bal = income - exp- save;
             txtBal.Text = bal.ToString();
 
-
-            /*double[] data = { food, clothes, trans, ent, other};
-
-            // The labels for the pie chart
-            string[] labels = {"Food", "Clothes", "Transport", "Entertainment", "Other"};
-
-            // Create a PieChart object of size 360 x 300 pixels
-            PieChart c = new PieChart(360, 300);
-
-            // Set the center of the pie at (180, 140) and the radius to 100 pixels
-            c.setPieSize(180, 140, 100);
-
-            // Set the pie data and the pie labels
-            chtOver.DataBind(labels,data);
-
-            // Output the chart
-            viewer.Chart = c;
-
-            //include tool tip for the chart
-            viewer.ImageMap = c.getHTMLImageMap("clickable", "",
-                "title='{label}: US${value}K ({percent}%)'");*/
+            //generate pie chart
+            chtOver.Series["Series1"].Points.Clear();
+            chtOver.Series["Series1"].Points.AddXY("Expense", exp);
+            chtOver.Series["Series1"].Points.AddXY("Saving", save);
+            chtOver.Series["Series1"].Points.AddXY("Balance", bal);
+            
+            chtExp.Series["Series1"].Points.Clear();
+            chtExp.Series["Series1"].Points.AddXY("Food", food);
+            chtExp.Series["Series1"].Points.AddXY("Transport", trans);
+            chtExp.Series["Series1"].Points.AddXY("Clothes", clothes);
+            chtExp.Series["Series1"].Points.AddXY("Entertainment", ent);
+            chtExp.Series["Series1"].Points.AddXY("Other", otherEx);
+     
         }
 
-        private void btnFilter_Click(object sender, EventArgs e)
+       
+        /// <summary>
+        /// Generate the report based on the selection and saced as xlsx file in the given location
+        /// </summary>
+        /// <param name="reportCount"></param>
+
+        private void generateReport(int reportCount)
         {
-            filterValues();
+            string AppLocation = "";
+            AppLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+            AppLocation = AppLocation.Replace("file:\\", "");
+            string date = now.ToShortDateString();
+            date = date.Replace("/", "_");
+            
+            string type;
+
+            var wbook = new XLWorkbook();
+
+            var dv = ds.Tables[0].DefaultView;
+            var newDS = new DataSet();
+            DataTable newDT;
+
+            if (rbtCustom.Checked == true)
+            {
+                newDS = filterValues(dtpRptFrom.Text, dtpRptTo.Text);
+                type = "Custom Date";
+            }
+            else if (rbtWeek.Checked == true)
+            { 
+                var thisMonthRows = tabl.AsEnumerable()
+                   .Where(r => r.Field<DateTime>("Date").Year == now.Year && r.Field<DateTime>("Date").Month == now.Month
+                    && (r.Field<DateTime>("Date").Day <= iDate && r.Field<DateTime>("Date").Day >= iDate - 6));
+
+                newDT = thisMonthRows.CopyToDataTable();
+                newDS.Tables.Add(newDT);
+                dgvRpt.DataSource = newDS.Tables[0].DefaultView;
+                type = "Weekly";
+
+            }
+            else
+            {
+                var thisMonthRows = tabl.AsEnumerable()
+                    .Where(r => r.Field<DateTime>("Date").Year == now.Year
+                     && r.Field<DateTime>("Date").Month == now.Month);
+
+                newDT = thisMonthRows.CopyToDataTable();
+                newDS.Tables.Add(newDT);
+                type = "Monthly";
+               
+            }
+
+            string filepath = AppLocation + "\\Reports\\" + "BUDGET_REPORT_" + date + "_" + type + "_" + reportCount + ".xlsx";
+            dgvRpt.DataSource = newDS.Tables[0].DefaultView;
+            wbook.Worksheets.Add(newDS.Tables[0], newDS.Tables[0].TableName);
+            wbook.SaveAs(filepath);
+            MessageBox.Show(type + " report successfully saved as " + filepath );   
         }
+
+
 
         private void chtOver_Click(object sender, EventArgs e)
         {
 
         }
 
-       
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabTD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabSummary_Click(object sender, EventArgs e)
+        {
+            calculateSummary();
+        }
+
+        private void dtpTDTo_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
