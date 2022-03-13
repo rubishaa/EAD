@@ -23,8 +23,15 @@ namespace BudgetTracker
         //on add buttonclick
         private void button1_Click(object sender, EventArgs e)
         {
-            sumForm.addTransaction(dtpAdd.Value.Date, cmbType.Text, cmbCat.Text, txtAmnt.Text, txtDes.Text);
-            MessageBox.Show("Successfully Added");
+            if (validateEntry())
+            {
+                sumForm.addTransaction(dtpAdd.Value.Date, cmbType.Text, cmbCat.Text, txtAmnt.Text, txtDes.Text);
+                MessageBox.Show("Successfully Added");
+            }
+            else
+            {
+                MessageBox.Show("Please fill the Type, Category and Amount");
+            }
         }
 
         /// <summary>
@@ -48,9 +55,16 @@ namespace BudgetTracker
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            sumForm.deleteRow();
-            sumForm.addTransaction(dtpAdd.Value, cmbType.Text, cmbCat.Text, txtAmnt.Text, txtDes.Text);
-            MessageBox.Show("Successfully Updated");
+            if (validateEntry())
+            {
+                sumForm.deleteRow();
+                sumForm.addTransaction(dtpAdd.Value, cmbType.Text, cmbCat.Text, txtAmnt.Text, txtDes.Text);
+                MessageBox.Show("Successfully Updated");
+            }
+            else
+            {
+                MessageBox.Show("Please fill the Type, Category and Amount");
+            }
         }
 
         /// <summary>
@@ -73,6 +87,52 @@ namespace BudgetTracker
             {
 
             }
+        }
+
+        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedType = cmbType.SelectedIndex;
+            cmbCat.Items.Clear();
+            if (selectedType == 0)
+            {
+                cmbCat.Items.Add("Salary");
+                cmbCat.Items.Add("Interest");
+                cmbCat.Items.Add("Other Income");
+            }
+            else if (selectedType == 1)
+            {
+                cmbCat.Items.Add("Food");
+                cmbCat.Items.Add("Clothes");
+                cmbCat.Items.Add("Transport");
+                cmbCat.Items.Add("Entertainment");
+                cmbCat.Items.Add("Other Expenses");
+            }
+            else if (selectedType == 2)
+            {
+                cmbCat.Items.Add("Bank");
+                cmbCat.Items.Add("Cash");
+                cmbCat.Items.Add("Other Savings");
+            }
+            
+        }
+
+        private bool validateEntry()
+        {
+            if (cmbType.SelectedIndex == -1)
+            {
+                return false;
+            }
+
+            if (cmbCat.SelectedIndex == -1)
+            {
+                return false;
+            }
+
+            if (txtAmnt.Text == null || txtAmnt.Text == "")
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

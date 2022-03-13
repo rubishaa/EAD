@@ -117,6 +117,7 @@
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(136, 27);
             this.cmbType.TabIndex = 6;
+            this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
             // 
             // cmbCat
             // 
@@ -130,7 +131,10 @@
             "Clothes",
             "Transport",
             "Entertainment",
-            "Other Expenses"});
+            "Other Expenses",
+            "Bank",
+            "Cash",
+            "OtherSavings"});
             this.cmbCat.Location = new System.Drawing.Point(183, 115);
             this.cmbCat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbCat.Name = "cmbCat";

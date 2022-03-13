@@ -21,6 +21,7 @@ namespace BudgetTracker
         public int iDate = DateTime.Now.Day;
         public int rowIndex;
         public int reportCount = 0;
+        public int forecastDate = System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
 
         public Summary()
         {
@@ -60,8 +61,7 @@ namespace BudgetTracker
 
         private void Summary_Load(object sender, EventArgs e)
         {
-            chtOver.Titles.Add("Overview");
-            chtOver.Series["Series1"].IsValueShownAsLabel = true;
+          
             chtExp.Titles.Add("Expense view");
             chtExp.Series["Series1"].IsValueShownAsLabel = true;
             calculateSummary();
@@ -263,13 +263,13 @@ namespace BudgetTracker
                 .Sum(x => x.Field<float>("Amount"));
 
             //forcast calculation        
-            int daysInmonth = System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-            txtExpFor.Text = ((exp / iDate)*daysInmonth).ToString();
-            txtClotheFor.Text = ((clothes / iDate) *daysInmonth).ToString();
-            txtEntFor.Text  = ((ent / iDate) * daysInmonth).ToString();
-            txtExpOtFor.Text = ((otherEx / iDate) * daysInmonth).ToString();
-            txtFoodFor.Text = ((food / iDate) * daysInmonth).ToString();
-            txtTransFor.Text = ((trans / iDate) * daysInmonth).ToString();
+            
+            txtExpFor.Text = ((exp / iDate)*forecastDate).ToString();
+            txtClotheFor.Text = ((clothes / iDate) * forecastDate).ToString();
+            txtEntFor.Text  = ((ent / iDate) * forecastDate).ToString();
+            txtExpOtFor.Text = ((otherEx / iDate) * forecastDate).ToString();
+            txtFoodFor.Text = ((food / iDate) * forecastDate).ToString();
+            txtTransFor.Text = ((trans / iDate) * forecastDate).ToString();
 
             // assign the alues to the text box
             txtIncome.Text = income.ToString();
@@ -288,10 +288,7 @@ namespace BudgetTracker
             txtBal.Text = bal.ToString();
 
             //generate pie chart
-            chtOver.Series["Series1"].Points.Clear();
-            chtOver.Series["Series1"].Points.AddXY("Expense", exp);
-            chtOver.Series["Series1"].Points.AddXY("Saving", save);
-            chtOver.Series["Series1"].Points.AddXY("Balance", bal);
+           
             
             chtExp.Series["Series1"].Points.Clear();
             chtExp.Series["Series1"].Points.AddXY("Food", food);
@@ -393,5 +390,10 @@ namespace BudgetTracker
 
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            forecastDate = dtpForecast.Value.Day;
+            calculateSummary();
+        }
     }
 }

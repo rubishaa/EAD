@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnReport = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,8 +68,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSummary = new System.Windows.Forms.TabPage();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.chtExp = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chtOver = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabTD = new System.Windows.Forms.TabPage();
             this.btnFilter = new System.Windows.Forms.Button();
             this.rbtView = new System.Windows.Forms.RadioButton();
@@ -89,35 +86,35 @@
             this.rbtFilter = new System.Windows.Forms.RadioButton();
             this.rbtLast = new System.Windows.Forms.RadioButton();
             this.tabReport = new System.Windows.Forms.TabPage();
+            this.dgvRpt = new System.Windows.Forms.DataGridView();
+            this.rbtCustom = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
             this.rbtMonth = new System.Windows.Forms.RadioButton();
             this.rbtWeek = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtpRptTo = new System.Windows.Forms.DateTimePicker();
-            this.rbtCustom = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.dtpRptFrom = new System.Windows.Forms.DateTimePicker();
-            this.dgvRpt = new System.Windows.Forms.DataGridView();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.dtpForecast = new System.Windows.Forms.DateTimePicker();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chtExp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chtOver)).BeginInit();
             this.tabTD.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTD)).BeginInit();
             this.tabReport.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRpt)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnReport
             // 
             this.btnReport.Location = new System.Drawing.Point(62, 132);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(164, 28);
             this.btnReport.TabIndex = 1;
@@ -182,9 +179,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(23, 3);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(409, 540);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
@@ -194,7 +191,7 @@
             // 
             this.txtBal.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBal.Location = new System.Drawing.Point(122, 489);
-            this.txtBal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBal.Margin = new System.Windows.Forms.Padding(2);
             this.txtBal.Name = "txtBal";
             this.txtBal.Size = new System.Drawing.Size(110, 26);
             this.txtBal.TabIndex = 37;
@@ -204,7 +201,7 @@
             // 
             this.txtSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSave.Location = new System.Drawing.Point(122, 443);
-            this.txtSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSave.Margin = new System.Windows.Forms.Padding(2);
             this.txtSave.Name = "txtSave";
             this.txtSave.Size = new System.Drawing.Size(110, 26);
             this.txtSave.TabIndex = 35;
@@ -214,7 +211,7 @@
             // 
             this.txtExpOtFor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExpOtFor.Location = new System.Drawing.Point(270, 395);
-            this.txtExpOtFor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtExpOtFor.Margin = new System.Windows.Forms.Padding(2);
             this.txtExpOtFor.Name = "txtExpOtFor";
             this.txtExpOtFor.Size = new System.Drawing.Size(110, 26);
             this.txtExpOtFor.TabIndex = 34;
@@ -224,7 +221,7 @@
             // 
             this.txtOtherEx.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOtherEx.Location = new System.Drawing.Point(122, 395);
-            this.txtOtherEx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtOtherEx.Margin = new System.Windows.Forms.Padding(2);
             this.txtOtherEx.Name = "txtOtherEx";
             this.txtOtherEx.Size = new System.Drawing.Size(110, 26);
             this.txtOtherEx.TabIndex = 33;
@@ -234,7 +231,7 @@
             // 
             this.txtEntFor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEntFor.Location = new System.Drawing.Point(270, 354);
-            this.txtEntFor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEntFor.Margin = new System.Windows.Forms.Padding(2);
             this.txtEntFor.Name = "txtEntFor";
             this.txtEntFor.Size = new System.Drawing.Size(110, 26);
             this.txtEntFor.TabIndex = 32;
@@ -244,7 +241,7 @@
             // 
             this.txtEnt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEnt.Location = new System.Drawing.Point(122, 357);
-            this.txtEnt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEnt.Margin = new System.Windows.Forms.Padding(2);
             this.txtEnt.Name = "txtEnt";
             this.txtEnt.Size = new System.Drawing.Size(110, 26);
             this.txtEnt.TabIndex = 31;
@@ -254,7 +251,7 @@
             // 
             this.txtTransFor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTransFor.Location = new System.Drawing.Point(270, 319);
-            this.txtTransFor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTransFor.Margin = new System.Windows.Forms.Padding(2);
             this.txtTransFor.Name = "txtTransFor";
             this.txtTransFor.Size = new System.Drawing.Size(110, 26);
             this.txtTransFor.TabIndex = 30;
@@ -264,7 +261,7 @@
             // 
             this.txtTransport.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTransport.Location = new System.Drawing.Point(122, 317);
-            this.txtTransport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTransport.Margin = new System.Windows.Forms.Padding(2);
             this.txtTransport.Name = "txtTransport";
             this.txtTransport.Size = new System.Drawing.Size(110, 26);
             this.txtTransport.TabIndex = 29;
@@ -274,7 +271,7 @@
             // 
             this.txtClotheFor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClotheFor.Location = new System.Drawing.Point(270, 280);
-            this.txtClotheFor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtClotheFor.Margin = new System.Windows.Forms.Padding(2);
             this.txtClotheFor.Name = "txtClotheFor";
             this.txtClotheFor.Size = new System.Drawing.Size(110, 26);
             this.txtClotheFor.TabIndex = 28;
@@ -284,7 +281,7 @@
             // 
             this.txtClothes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClothes.Location = new System.Drawing.Point(122, 280);
-            this.txtClothes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtClothes.Margin = new System.Windows.Forms.Padding(2);
             this.txtClothes.Name = "txtClothes";
             this.txtClothes.Size = new System.Drawing.Size(110, 26);
             this.txtClothes.TabIndex = 27;
@@ -294,7 +291,7 @@
             // 
             this.txtFoodFor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFoodFor.Location = new System.Drawing.Point(270, 245);
-            this.txtFoodFor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFoodFor.Margin = new System.Windows.Forms.Padding(2);
             this.txtFoodFor.Name = "txtFoodFor";
             this.txtFoodFor.Size = new System.Drawing.Size(110, 26);
             this.txtFoodFor.TabIndex = 26;
@@ -304,7 +301,7 @@
             // 
             this.txtFood.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFood.Location = new System.Drawing.Point(122, 242);
-            this.txtFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFood.Margin = new System.Windows.Forms.Padding(2);
             this.txtFood.Name = "txtFood";
             this.txtFood.Size = new System.Drawing.Size(110, 26);
             this.txtFood.TabIndex = 25;
@@ -314,7 +311,7 @@
             // 
             this.txtExpFor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExpFor.Location = new System.Drawing.Point(270, 209);
-            this.txtExpFor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtExpFor.Margin = new System.Windows.Forms.Padding(2);
             this.txtExpFor.Name = "txtExpFor";
             this.txtExpFor.Size = new System.Drawing.Size(110, 26);
             this.txtExpFor.TabIndex = 24;
@@ -324,7 +321,7 @@
             // 
             this.txtExp.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExp.Location = new System.Drawing.Point(122, 209);
-            this.txtExp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtExp.Margin = new System.Windows.Forms.Padding(2);
             this.txtExp.Name = "txtExp";
             this.txtExp.Size = new System.Drawing.Size(110, 26);
             this.txtExp.TabIndex = 23;
@@ -334,7 +331,7 @@
             // 
             this.txtOther.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOther.Location = new System.Drawing.Point(122, 157);
-            this.txtOther.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtOther.Margin = new System.Windows.Forms.Padding(2);
             this.txtOther.Name = "txtOther";
             this.txtOther.Size = new System.Drawing.Size(110, 26);
             this.txtOther.TabIndex = 21;
@@ -344,7 +341,7 @@
             // 
             this.txtInterest.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInterest.Location = new System.Drawing.Point(122, 122);
-            this.txtInterest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInterest.Margin = new System.Windows.Forms.Padding(2);
             this.txtInterest.Name = "txtInterest";
             this.txtInterest.Size = new System.Drawing.Size(110, 26);
             this.txtInterest.TabIndex = 19;
@@ -354,7 +351,7 @@
             // 
             this.txtSalary.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalary.Location = new System.Drawing.Point(122, 84);
-            this.txtSalary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSalary.Margin = new System.Windows.Forms.Padding(2);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(110, 26);
             this.txtSalary.TabIndex = 17;
@@ -364,7 +361,7 @@
             // 
             this.txtIncome.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIncome.Location = new System.Drawing.Point(122, 48);
-            this.txtIncome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIncome.Margin = new System.Windows.Forms.Padding(2);
             this.txtIncome.Name = "txtIncome";
             this.txtIncome.Size = new System.Drawing.Size(110, 26);
             this.txtIncome.TabIndex = 15;
@@ -495,12 +492,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(307, 15);
+            this.label3.Location = new System.Drawing.Point(266, 178);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 19);
+            this.label3.Size = new System.Drawing.Size(101, 19);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Forcast";
+            this.label3.Text = "Forcast Value";
             // 
             // tabControl1
             // 
@@ -510,7 +507,7 @@
             this.tabControl1.Controls.Add(this.tabReport);
             this.tabControl1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(-1, 2);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(722, 618);
@@ -519,55 +516,48 @@
             // tabSummary
             // 
             this.tabSummary.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabSummary.Controls.Add(this.label20);
+            this.tabSummary.Controls.Add(this.dtpForecast);
             this.tabSummary.Controls.Add(this.btnRefresh);
             this.tabSummary.Controls.Add(this.chtExp);
-            this.tabSummary.Controls.Add(this.chtOver);
             this.tabSummary.Controls.Add(this.groupBox1);
             this.tabSummary.Location = new System.Drawing.Point(4, 31);
-            this.tabSummary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabSummary.Margin = new System.Windows.Forms.Padding(2);
             this.tabSummary.Name = "tabSummary";
-            this.tabSummary.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabSummary.Padding = new System.Windows.Forms.Padding(2);
             this.tabSummary.Size = new System.Drawing.Size(714, 583);
             this.tabSummary.TabIndex = 0;
             this.tabSummary.Text = "Summary";
             this.tabSummary.Click += new System.EventHandler(this.tabSummary_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(439, 13);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(79, 28);
+            this.btnRefresh.TabIndex = 38;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // chtExp
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chtExp.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chtExp.Legends.Add(legend3);
-            this.chtExp.Location = new System.Drawing.Point(475, 326);
-            this.chtExp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chtExp.BorderlineColor = System.Drawing.Color.Lavender;
+            chartArea1.Name = "ChartArea1";
+            this.chtExp.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chtExp.Legends.Add(legend1);
+            this.chtExp.Location = new System.Drawing.Point(451, 260);
+            this.chtExp.Margin = new System.Windows.Forms.Padding(2);
             this.chtExp.Name = "chtExp";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chtExp.Series.Add(series3);
-            this.chtExp.Size = new System.Drawing.Size(225, 230);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chtExp.Series.Add(series1);
+            this.chtExp.Size = new System.Drawing.Size(249, 258);
             this.chtExp.TabIndex = 6;
             this.chtExp.Text = "Expenses";
-            // 
-            // chtOver
-            // 
-            chartArea4.Name = "ChartArea1";
-            this.chtOver.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chtOver.Legends.Add(legend4);
-            this.chtOver.Location = new System.Drawing.Point(475, 57);
-            this.chtOver.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.chtOver.Name = "chtOver";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chtOver.Series.Add(series4);
-            this.chtOver.Size = new System.Drawing.Size(225, 223);
-            this.chtOver.TabIndex = 5;
-            this.chtOver.Text = "Overview";
-            this.chtOver.Click += new System.EventHandler(this.chtOver_Click);
             // 
             // tabTD
             // 
@@ -580,9 +570,9 @@
             this.tabTD.Controls.Add(this.rbtFilter);
             this.tabTD.Controls.Add(this.rbtLast);
             this.tabTD.Location = new System.Drawing.Point(4, 31);
-            this.tabTD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabTD.Margin = new System.Windows.Forms.Padding(2);
             this.tabTD.Name = "tabTD";
-            this.tabTD.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabTD.Padding = new System.Windows.Forms.Padding(2);
             this.tabTD.Size = new System.Drawing.Size(714, 583);
             this.tabTD.TabIndex = 1;
             this.tabTD.Text = "Transactions";
@@ -591,7 +581,7 @@
             // btnFilter
             // 
             this.btnFilter.Location = new System.Drawing.Point(584, 109);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(2);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(80, 32);
             this.btnFilter.TabIndex = 25;
@@ -603,7 +593,7 @@
             // 
             this.rbtView.AutoSize = true;
             this.rbtView.Location = new System.Drawing.Point(16, 17);
-            this.rbtView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtView.Margin = new System.Windows.Forms.Padding(2);
             this.rbtView.Name = "rbtView";
             this.rbtView.Size = new System.Drawing.Size(81, 23);
             this.rbtView.TabIndex = 24;
@@ -618,9 +608,9 @@
             this.groupBox3.Controls.Add(this.btnDelete);
             this.groupBox3.Controls.Add(this.btnUpdate);
             this.groupBox3.Location = new System.Drawing.Point(350, 12);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(322, 51);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
@@ -629,7 +619,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnAdd.Location = new System.Drawing.Point(4, 13);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(59, 33);
             this.btnAdd.TabIndex = 14;
@@ -641,7 +631,7 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.Location = new System.Drawing.Point(235, 13);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(76, 33);
             this.btnDelete.TabIndex = 22;
@@ -653,7 +643,7 @@
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnUpdate.Location = new System.Drawing.Point(104, 13);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 33);
             this.btnUpdate.TabIndex = 21;
@@ -668,9 +658,9 @@
             this.groupBox2.Controls.Add(this.dtpTDTo);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Location = new System.Drawing.Point(81, 102);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(474, 39);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
@@ -690,7 +680,7 @@
             // 
             this.dtpTDFrom.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTDFrom.Location = new System.Drawing.Point(51, 11);
-            this.dtpTDFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpTDFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dtpTDFrom.MaxDate = new System.DateTime(3023, 12, 31, 0, 0, 0, 0);
             this.dtpTDFrom.Name = "dtpTDFrom";
             this.dtpTDFrom.Size = new System.Drawing.Size(189, 26);
@@ -701,7 +691,7 @@
             // 
             this.dtpTDTo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTDTo.Location = new System.Drawing.Point(275, 11);
-            this.dtpTDTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpTDTo.Margin = new System.Windows.Forms.Padding(2);
             this.dtpTDTo.MaxDate = new System.DateTime(3023, 12, 31, 0, 0, 0, 0);
             this.dtpTDTo.Name = "dtpTDTo";
             this.dtpTDTo.Size = new System.Drawing.Size(189, 26);
@@ -725,15 +715,15 @@
             this.dgvTD.AllowUserToAddRows = false;
             this.dgvTD.AllowUserToDeleteRows = false;
             this.dgvTD.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvTD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTD.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dgvTD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvTD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTD.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvTD.Location = new System.Drawing.Point(16, 161);
-            this.dgvTD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTD.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTD.Name = "dgvTD";
             this.dgvTD.ReadOnly = true;
             this.dgvTD.RowHeadersWidth = 51;
@@ -746,7 +736,7 @@
             // 
             this.rbtFilter.AutoSize = true;
             this.rbtFilter.Location = new System.Drawing.Point(16, 113);
-            this.rbtFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtFilter.Margin = new System.Windows.Forms.Padding(2);
             this.rbtFilter.Name = "rbtFilter";
             this.rbtFilter.Size = new System.Drawing.Size(63, 23);
             this.rbtFilter.TabIndex = 16;
@@ -758,7 +748,7 @@
             // 
             this.rbtLast.AutoSize = true;
             this.rbtLast.Location = new System.Drawing.Point(16, 63);
-            this.rbtLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtLast.Margin = new System.Windows.Forms.Padding(2);
             this.rbtLast.Name = "rbtLast";
             this.rbtLast.Size = new System.Drawing.Size(159, 23);
             this.rbtLast.TabIndex = 15;
@@ -777,11 +767,33 @@
             this.tabReport.Controls.Add(this.groupBox4);
             this.tabReport.Controls.Add(this.btnReport);
             this.tabReport.Location = new System.Drawing.Point(4, 31);
-            this.tabReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabReport.Margin = new System.Windows.Forms.Padding(2);
             this.tabReport.Name = "tabReport";
             this.tabReport.Size = new System.Drawing.Size(714, 583);
             this.tabReport.TabIndex = 2;
             this.tabReport.Text = "Report";
+            // 
+            // dgvRpt
+            // 
+            this.dgvRpt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRpt.Location = new System.Drawing.Point(18, 198);
+            this.dgvRpt.Name = "dgvRpt";
+            this.dgvRpt.ReadOnly = true;
+            this.dgvRpt.Size = new System.Drawing.Size(665, 357);
+            this.dgvRpt.TabIndex = 26;
+            // 
+            // rbtCustom
+            // 
+            this.rbtCustom.AutoSize = true;
+            this.rbtCustom.Location = new System.Drawing.Point(240, 85);
+            this.rbtCustom.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtCustom.Name = "rbtCustom";
+            this.rbtCustom.Size = new System.Drawing.Size(78, 23);
+            this.rbtCustom.TabIndex = 24;
+            this.rbtCustom.TabStop = true;
+            this.rbtCustom.Text = "Custom";
+            this.rbtCustom.UseVisualStyleBackColor = true;
+            this.rbtCustom.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // label19
             // 
@@ -797,7 +809,7 @@
             // 
             this.rbtMonth.AutoSize = true;
             this.rbtMonth.Location = new System.Drawing.Point(124, 85);
-            this.rbtMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtMonth.Margin = new System.Windows.Forms.Padding(2);
             this.rbtMonth.Name = "rbtMonth";
             this.rbtMonth.Size = new System.Drawing.Size(84, 23);
             this.rbtMonth.TabIndex = 23;
@@ -809,7 +821,7 @@
             // 
             this.rbtWeek.AutoSize = true;
             this.rbtWeek.Location = new System.Drawing.Point(18, 84);
-            this.rbtWeek.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtWeek.Margin = new System.Windows.Forms.Padding(2);
             this.rbtWeek.Name = "rbtWeek";
             this.rbtWeek.Size = new System.Drawing.Size(78, 23);
             this.rbtWeek.TabIndex = 22;
@@ -824,9 +836,9 @@
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.dtpRptFrom);
             this.groupBox4.Location = new System.Drawing.Point(337, 68);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(308, 92);
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
@@ -835,25 +847,12 @@
             // 
             this.dtpRptTo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpRptTo.Location = new System.Drawing.Point(94, 62);
-            this.dtpRptTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpRptTo.Margin = new System.Windows.Forms.Padding(2);
             this.dtpRptTo.MaxDate = new System.DateTime(3022, 12, 31, 0, 0, 0, 0);
             this.dtpRptTo.Name = "dtpRptTo";
             this.dtpRptTo.Size = new System.Drawing.Size(191, 26);
             this.dtpRptTo.TabIndex = 13;
             this.dtpRptTo.Value = new System.DateTime(2022, 3, 12, 0, 0, 0, 0);
-            // 
-            // rbtCustom
-            // 
-            this.rbtCustom.AutoSize = true;
-            this.rbtCustom.Location = new System.Drawing.Point(240, 85);
-            this.rbtCustom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.rbtCustom.Name = "rbtCustom";
-            this.rbtCustom.Size = new System.Drawing.Size(78, 23);
-            this.rbtCustom.TabIndex = 24;
-            this.rbtCustom.TabStop = true;
-            this.rbtCustom.Text = "Custom";
-            this.rbtCustom.UseVisualStyleBackColor = true;
-            this.rbtCustom.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // label6
             // 
@@ -881,31 +880,30 @@
             // 
             this.dtpRptFrom.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpRptFrom.Location = new System.Drawing.Point(94, 19);
-            this.dtpRptFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpRptFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dtpRptFrom.MaxDate = new System.DateTime(3022, 12, 31, 0, 0, 0, 0);
             this.dtpRptFrom.Name = "dtpRptFrom";
             this.dtpRptFrom.Size = new System.Drawing.Size(191, 26);
             this.dtpRptFrom.TabIndex = 10;
             this.dtpRptFrom.Value = new System.DateTime(2022, 3, 12, 0, 0, 0, 0);
             // 
-            // dgvRpt
+            // dtpForecast
             // 
-            this.dgvRpt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRpt.Location = new System.Drawing.Point(18, 198);
-            this.dgvRpt.Name = "dgvRpt";
-            this.dgvRpt.ReadOnly = true;
-            this.dgvRpt.Size = new System.Drawing.Size(665, 357);
-            this.dgvRpt.TabIndex = 26;
+            this.dtpForecast.CalendarFont = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpForecast.Location = new System.Drawing.Point(435, 212);
+            this.dtpForecast.Name = "dtpForecast";
+            this.dtpForecast.Size = new System.Drawing.Size(274, 26);
+            this.dtpForecast.TabIndex = 39;
+            this.dtpForecast.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // btnRefresh
+            // label20
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(475, 11);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 33);
-            this.btnRefresh.TabIndex = 38;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(437, 181);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(104, 19);
+            this.label20.TabIndex = 40;
+            this.label20.Text = "Forecast Date";
             // 
             // Summary
             // 
@@ -915,7 +913,7 @@
             this.ClientSize = new System.Drawing.Size(714, 616);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Summary";
             this.Text = "Summary";
             this.Load += new System.EventHandler(this.Summary_Load);
@@ -923,8 +921,8 @@
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabSummary.ResumeLayout(false);
+            this.tabSummary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chtExp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chtOver)).EndInit();
             this.tabTD.ResumeLayout(false);
             this.tabTD.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -933,9 +931,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTD)).EndInit();
             this.tabReport.ResumeLayout(false);
             this.tabReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRpt)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRpt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1001,10 +999,11 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataVisualization.Charting.Chart chtExp;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chtOver;
         private System.Windows.Forms.RadioButton rbtView;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.DataGridView dgvRpt;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DateTimePicker dtpForecast;
+        private System.Windows.Forms.Label label20;
     }
 }
