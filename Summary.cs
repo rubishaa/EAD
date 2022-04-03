@@ -22,6 +22,7 @@ namespace BudgetTracker
         public int rowIndex;
         public int reportCount = 0;
         public int forecastDate = System.DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+        public bool error = false;
 
         public Summary()
         {
@@ -153,9 +154,23 @@ namespace BudgetTracker
         /// <param name="des"></param>
         public void addTransaction(DateTime date, String type, String category, String amount, String des)
         {
-            float amt = (float)Convert.ToDouble(amount);
-            tabl.Rows.Add(date, type, category, amt, des);
-            viewAll();
+            try
+            {
+                float amt = (float)Convert.ToDouble(amount);
+                tabl.Rows.Add(date, type, category, amt, des);
+                viewAll();
+            }
+            catch
+            {
+                MessageBox.Show("Please enter numeric values for amount");
+                error = true;
+            }
+            
+        }
+
+        public bool getError()
+        {
+            return error;
         }
 
         /// <summary>

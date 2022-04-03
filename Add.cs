@@ -26,11 +26,15 @@ namespace BudgetTracker
             if (validateEntry())
             {
                 sumForm.addTransaction(dtpAdd.Value.Date, cmbType.Text, cmbCat.Text, txtAmnt.Text, txtDes.Text);
-                MessageBox.Show("Successfully Added");
+
+                if (!sumForm.getError())
+                {
+                    MessageBox.Show("Successfully Added");
+                }
             }
             else
             {
-                MessageBox.Show("Please fill the Type, Category and Amount");
+                MessageBox.Show("Please fill the Type, Category and Amount");              
             }
         }
 
